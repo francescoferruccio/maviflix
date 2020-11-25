@@ -4,6 +4,7 @@ export function MovieModal(props) {
     }
     
     const closeModal = () => {
+        // chiudo la modale
         props.setShowModal(false);
     }
 

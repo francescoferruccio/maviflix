@@ -1,22 +1,21 @@
 export function MovieCard(props) {
 
     const showModal = () => {
-        // console.log(props);
+        // mostro la modale
         props.setShowModal(true);
         
         // cerco i generi del film cliccato
         let generi = [];
         props.movie.genre_ids.forEach(genere => {
-            // console.log('genere', genere);
             props.generi.forEach(allGenere => {
-                // console.log('allGenere', allGenere);
                 if(genere === allGenere.id) {
                     generi.push(allGenere);
                 }
             })
         });
+        // inserisco i generi del film nella prop
         props.movie.generi = generi;
-
+        // setto lo stato con i generi aggiornati
         props.setMovieModal(props.movie);
     }
     

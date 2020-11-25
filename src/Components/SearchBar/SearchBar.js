@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 export const SearchBar = (props) => {
     const [query, setQuery] = useState('');
 
+    // setto lo stato della query con la stringa scritta dall'utente
     const handleChange = (e) => setQuery(e.target.value);
 
     const search = (key) => {
+        // alla pressione del tasto INVIO
         if(key.code === 'Enter') {
             // ripulisco il campo di input
             key.nativeEvent.target.value = '';
@@ -21,6 +23,7 @@ export const SearchBar = (props) => {
                     // console.log(results);
                     // setto lo stato dell'apps con i risultati ottenuti
                     props.setMovies(results);
+                    // cambio il testo mostrato in pagina in base al risultato ottenuto
                     if(results.length !== 0) {
                         props.setTitle(`Risultati della ricerca per "${query}"`);
                     } else {
