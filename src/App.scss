@@ -1,6 +1,24 @@
 $main-color: #F40612;
 $bg-color: #303030;
 
+// stile scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba($color: #000000, $alpha: 0); 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fff; 
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -149,11 +167,12 @@ body {
           font-size: 24px;
     
           &:hover {
-            color:$main-color;
+            color: $main-color;
           }
         }
   
         .movie-details {
+          position: relative;
           height: 100%;
           display: flex;
           flex-direction: column;
@@ -179,8 +198,37 @@ body {
         }
   
         .cast {
-          height: 300px;
+          min-height: 300px;
           width: 100%;
+          display: flex;
+          overflow-y: hidden;
+
+          .actor-card {
+            display: inline-block;
+            height: 100%;
+            width: 150px;
+            margin: 20px 5px 0 5px;
+            text-align: center;
+          
+            .profile-img {
+              margin: auto;
+              height: 150px;
+              width: 150px;
+              object-fit: cover;
+
+              img {
+                position: relative;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+              }
+            }
+
+            .profile-details {
+              padding-top: 5px;
+            }
+          }
         }
       }
     }
